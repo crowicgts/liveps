@@ -1,7 +1,7 @@
 {
-  "name": "void-gtps-website",
+  "name": "liveps-dashboard",
   "version": "1.0.0",
-  "description": "VOID Private Server Live Web Portal & Gateway",
+  "description": "LIVEPS Private Server Web Portal & GTPS Cloud Gateway",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
