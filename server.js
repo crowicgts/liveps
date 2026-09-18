@@ -677,21 +677,7 @@ const DASHBOARD_HTML = `<!DOCTYPE html>
             box-shadow: 0 0 20px var(--gold-glow);
         }
 
-        .audio-toggle-btn {
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid var(--gold-border);
-            color: #fff;
-            padding: 8px 14px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 800;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
+        
 
         .audio-toggle-btn:hover {
             background: rgba(212, 175, 55, 0.35);
@@ -1444,7 +1430,7 @@ const DASHBOARD_HTML = `<!DOCTYPE html>
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
         .feature-card { background: rgba(18, 15, 11, 0.75); border: 1px solid var(--gold-border); border-radius: 14px; padding: 24px 20px; backdrop-filter: blur(10px); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
         .feature-card:hover { transform: translateY(-4px); border-color: var(--gold-bright); box-shadow: 0 12px 30px rgba(0,0,0,0.8), 0 0 20px rgba(212,175,55,0.25); }
-        .feature-icon { font-size: 32px; margin-bottom: 14px; }
+        .feature-icon { font-size: 32px; margin-bottom: 14px; display:flex; align-items:center; }
         .feature-card h3 { font-size: 16px; font-weight: 900; color: #ffffff; margin-bottom: 8px; letter-spacing: 0.5px; }
         .feature-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0; }
 
@@ -1479,10 +1465,7 @@ const DASHBOARD_HTML = `<!DOCTYPE html>
     <!-- Toast Notification Container -->
     <div id="toastContainer"></div>
 
-    <!-- Background Audio Loop -->
-    <audio id="bgAudio" loop preload="auto">
-        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=cyberpunk-2099-10701.mp3" type="audio/mpeg">
-    </audio>
+
 
     <!-- Language Selector Modal -->
     <div class="lang-modal" id="langModal">
@@ -1536,9 +1519,7 @@ const DASHBOARD_HTML = `<!DOCTYPE html>
             <button class="user-nav-btn" id="authNavBtn" onclick="handleAuthNavClick()">
                 <span id="authNavText">LOGIN / REGISTER</span>
             </button>
-            <button class="audio-toggle-btn" onclick="toggleAudio()" id="audioBtn">
-                <span id="audioIcon">OFF</span> <span id="audioTxt">MUSIC</span>
-            </button>
+
             <button class="lang-switch-btn" onclick="openLanguageModal()">
                 <img src="https://flagcdn.com/w80/gb.png" id="currentLangFlag" alt="Language" class="flag-img">
                 <span id="currentLangText">ENGLISH</span>
@@ -1549,7 +1530,7 @@ const DASHBOARD_HTML = `<!DOCTYPE html>
     <!-- Hero -->
     <section class="hero">
         <img src="/logo.png" alt="LIVEPS Private Server" class="main-logo-img">
-        <p id="heroDesc">Connect to the fastest, zero-lag GTPS Cloud server. Join thousands of champions, conquer custom bosses, and trade in our rich economy.</p>
+        <p id="heroDesc">Welcome to <strong>LIVE-PS</strong> — the ultimate Growtopia private server experience. Play now and discover what the community has been talking about.</p>
         
         <div class="hero-action-buttons">
             <button class="btn-glow-gold" onclick="document.getElementById('howToPlaySection').scrollIntoView({behavior:'smooth'})">
@@ -1589,39 +1570,39 @@ const DASHBOARD_HTML = `<!DOCTYPE html>
         </div>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon" style="color:#f59e0b;">🎮</div>
+                <div class="feature-icon" style="color:#f59e0b;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M12 6v12M8 9h2m4 0h2M8 15h2m4 0h2"/></svg></div>
                 <h3>Cool Features</h3>
                 <p>Unique gameplay mechanics including surgery, cooking, fishing, ship building, and challenging parkour worlds.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon" style="color:#10b981;">⚡</div>
+                <div class="feature-icon" style="color:#10b981;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
                 <h3>24/7 Uptime</h3>
                 <p>Reliable server hosting with minimal downtime, so you can play whenever you want without interruption.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon" style="color:#5865F2;">💬</div>
+                <div class="feature-icon" style="color:#5865F2;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                 <h3>Discord Integration</h3>
                 <p>Seamless integration with our Discord server for community events, support, and staying connected.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon" style="color:#ec4899;">🎁</div>
+                <div class="feature-icon" style="color:#ec4899;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                 <h3>Regular Events</h3>
                 <p>Participate in exciting server-wide events with exclusive rewards and prizes for the community.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon" style="color:#3b82f6;">🤝</div>
+                <div class="feature-icon" style="color:#3b82f6;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
                 <h3>Player Support</h3>
                 <p>Dedicated support team ready to help with any issues or questions through our Discord community.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon" style="color:#14b8a6;">🛡️</div>
+                <div class="feature-icon" style="color:#14b8a6;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                 <h3>Safe Environment</h3>
                 <p>Strong moderation with zero-tolerance policy for disruptions, ensuring a safe gaming experience for all players.</p>
             </div>
             <div class="feature-card" style="grid-column: 1 / -1;">
-                <div class="feature-icon" style="color:#a855f7;">👥</div>
+                <div class="feature-icon" style="color:#a855f7;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                 <h3>Active Community</h3>
-                <p>Join over 22,000 members in our thriving community where creativity and collaboration come to life.</p>
+                <p>An active and growing community where creativity and collaboration come to life every day.</p>
             </div>
         </div>
     </section>
@@ -1634,17 +1615,21 @@ const DASHBOARD_HTML = `<!DOCTYPE html>
             <p class="section-subtitle">Select your device platform below to open the complete step-by-step setup tutorial.</p>
         </div>
         <div style="text-align:center; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-top:10px;">
-            <button class="btn-glow-gold" style="padding:16px 28px; font-size:14px; display:inline-flex; align-items:center; gap:8px;" onclick="openTutorial('windows')">
-                <span>🪟</span> <span>WINDOWS GUIDE</span>
+            <button class="btn-glow-gold" style="padding:16px 28px; font-size:14px; display:inline-flex; align-items:center; gap:10px;" onclick="openTutorial('windows')">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.949"/></svg>
+                WINDOWS GUIDE
             </button>
-            <button class="btn-glow-gold" style="padding:16px 28px; font-size:14px; display:inline-flex; align-items:center; gap:8px;" onclick="openTutorial('android')">
-                <span>🤖</span> <span>ANDROID GUIDE</span>
+            <button class="btn-glow-gold" style="padding:16px 28px; font-size:14px; display:inline-flex; align-items:center; gap:10px;" onclick="openTutorial('android')">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.523 15.341a.5.5 0 0 1-.5.5h-.06l-1.294 2.244a.5.5 0 0 1-.862-.5l1.294-2.244H6.899l1.294 2.244a.5.5 0 0 1-.862.5l-1.294-2.244H6a.5.5 0 0 1-.5-.5V9.5c0-.276.224-.5.5-.5h11.523c.276 0 .5.224.5.5v5.841zM6.75 7.62l-1.195-2.07a.5.5 0 0 1 .866-.5l1.28 2.217A8.49 8.49 0 0 1 12 6.5c1.43 0 2.777.353 3.96.977l1.28-2.217a.5.5 0 0 1 .866.5L16.91 7.82A8.5 8.5 0 0 1 17.5 9H6.5a8.5 8.5 0 0 1 .25-1.38zM9.5 12a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0zm6 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z"/></svg>
+                ANDROID GUIDE
             </button>
-            <button class="btn-glow-gold" style="padding:16px 28px; font-size:14px; display:inline-flex; align-items:center; gap:8px;" onclick="openTutorial('ios')">
-                <span>🍎</span> <span>IOS GUIDE</span>
+            <button class="btn-glow-gold" style="padding:16px 28px; font-size:14px; display:inline-flex; align-items:center; gap:10px;" onclick="openTutorial('ios')">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                iOS GUIDE
             </button>
-            <button class="btn-glow-gold" style="padding:16px 28px; font-size:14px; display:inline-flex; align-items:center; gap:8px;" onclick="openTutorial('macos')">
-                <span>💻</span> <span>MAC GUIDE</span>
+            <button class="btn-glow-gold" style="padding:16px 28px; font-size:14px; display:inline-flex; align-items:center; gap:10px;" onclick="openTutorial('macos')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                MAC GUIDE
             </button>
         </div>
     </section>
@@ -2103,7 +2088,6 @@ const DASHBOARD_HTML = `<!DOCTYPE html>
 
     <script>
         let currentLang = localStorage.getItem('liveps_lang') || 'en';
-        let audioPlaying = false;
         let authToken = localStorage.getItem('liveps_token') || null;
         let currentUser = null;
 
@@ -2133,20 +2117,7 @@ const DASHBOARD_HTML = `<!DOCTYPE html>
             }, 3000);
         }
 
-        function toggleAudio() {
-            const audio = document.getElementById('bgAudio');
-            const icon = document.getElementById('audioIcon');
-            if (audioPlaying) {
-                audio.pause();
-                audioPlaying = false;
-                icon.innerText = 'OFF';
-            } else {
-                audio.play().then(() => {
-                    audioPlaying = true;
-                    icon.innerText = 'ON';
-                }).catch(e => console.log(e));
-            }
-        }
+
 
         function handleAuthNavClick() {
             if (currentUser) {
@@ -2436,7 +2407,7 @@ const DASHBOARD_HTML = `<!DOCTYPE html>
             en: {
                 flagSrc: 'https://flagcdn.com/w80/gb.png',
                 langText: 'ENGLISH',
-                heroDesc: 'Connect to the fastest, zero-lag GTPS Cloud server. Join thousands of champions, conquer custom bosses, and trade in our rich economy.',
+                heroDesc: 'Welcome to LIVE-PS — the ultimate Growtopia private server experience. Play now and discover what the community has been talking about.',
                 btnHowToPlay: 'HOW TO PLAY',
                 btnStore: 'SHOP ASSETS',
                 lblStatus: 'SERVER STATUS',
@@ -2484,7 +2455,7 @@ const DASHBOARD_HTML = `<!DOCTYPE html>
             id: {
                 flagSrc: 'https://flagcdn.com/w80/id.png',
                 langText: 'INDONESIA',
-                heroDesc: 'Terhubung ke server GTPS Cloud tercepat dan tanpa lag. Bergabunglah dengan ribuan pemain, kalahkan custom boss, dan nikmati ekonomi server kami.',
+                heroDesc: 'Selamat datang di LIVE-PS — server Growtopia private terbaik. Main sekarang dan rasakan pengalaman yang sudah dibicarakan komunitas!',
                 btnHowToPlay: 'CARA BERMAIN',
                 btnStore: 'BELI ITEM & ROLE',
                 lblStatus: 'STATUS SERVER',
